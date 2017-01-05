@@ -14,5 +14,16 @@ namespace ConsoleApp1
         {
             Client = client;
         }
+
+        public Profile SearchArtist(String name)
+        {
+            String response = Client.SendRequest($"https://api.spotify.com/v1/search?q={name}&type=artist");
+
+
+            Console.WriteLine(response);
+
+
+            return new Profile("Monstercat","example.com", 200);
+        }
     }
 }

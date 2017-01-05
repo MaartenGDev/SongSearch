@@ -18,7 +18,7 @@ namespace ConsoleApp1
 
             string responseFromServer = reader.ReadToEnd();
            
-
+     
 
             reader.Close();
             dataStream.Close();

@@ -9,12 +9,14 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            WebRequest request = WebRequest.Create("https://api.spotify.com/v1/search?q=hardwell&type=artist");
-
             HttpClient client = new HttpClient();
             Spotify spotify = new Spotify(client);
 
+            Profile monstercat = spotify.SearchArtist("Monstercat");
 
+            Console.WriteLine(monstercat.Followers);
+
+            Console.ReadLine();
         }
     }
 }
