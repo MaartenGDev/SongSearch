@@ -14,7 +14,7 @@ namespace ConsoleApp1
 
             Profile monstercat = spotify.SearchArtist("Monstercat");
 
-            Console.WriteLine(monstercat.Followers);
+            Console.WriteLine(monstercat);
 
             Console.ReadLine();
         }
