@@ -24,11 +24,11 @@ namespace ConsoleApp1
 
             JObject allArtists = JObject.Parse(response);
 
+            JObject currentUser = (JObject) allArtists["artists"]["items"][0];
 
-
-            String username = (String) allArtists["artists"]["items"][0]["name"];
-            String uri = (String) allArtists["artists"]["items"][0]["uri"];
-            int totalFollowers = (int) allArtists["artists"]["items"][0]["followers"]["total"];
+            String username = (String) currentUser["name"];
+            String uri = (String) currentUser["uri"];
+            int totalFollowers = (int) currentUser["followers"]["total"];
 
             return new Profile(username, uri, totalFollowers);
 

@@ -21,7 +21,7 @@ namespace ConsoleApp1
 
         public override string ToString()
         {
-            return $"Name: {Name} has {Followers} his uri is: {Uri}";
+            return $"Name: {Name} has {Followers} followers and his uri is: {Uri}";
         }
     }
 }

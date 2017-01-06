@@ -12,7 +12,8 @@ namespace ConsoleApp1
             HttpClient client = new HttpClient();
             Spotify spotify = new Spotify(client);
 
-            Profile monstercat = spotify.SearchArtist("Monstercat");
+            String artist = Console.ReadLine();
+            Profile monstercat = spotify.SearchArtist(artist);
 
             Console.WriteLine(monstercat);
 
