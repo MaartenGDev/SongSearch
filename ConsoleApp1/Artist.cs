@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Profile
+    class Artist
     {
+        public String Id;
         public String Name;
         public String Uri;
         public int Followers;
 
-        public Profile(String name, String uri, int followers)
+        public Artist(String id, String name, String uri, int followers)
         {
+            Id = id;
             Name = name;
             Uri = uri;
             Followers = followers;

@@ -13,9 +13,9 @@ namespace ConsoleApp1
             Spotify spotify = new Spotify(client);
 
             String artist = Console.ReadLine();
-            Profile monstercat = spotify.SearchArtist(artist);
+            Artist monstercat = spotify.SearchArtist(artist);
 
-            Console.WriteLine(monstercat);
+            spotify.GetTopTracks(monstercat);
 
             Console.ReadLine();
         }

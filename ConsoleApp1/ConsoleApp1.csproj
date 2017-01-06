@@ -46,10 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HttpClient.cs" />
-    <Compile Include="Profile.cs" />
+    <Compile Include="Artist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spotify.cs" />
+    <Compile Include="Tracks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

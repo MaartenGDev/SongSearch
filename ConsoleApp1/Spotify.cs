@@ -17,7 +17,7 @@ namespace ConsoleApp1
             Client = client;
         }
 
-        public Profile SearchArtist(String name)
+        public Artist SearchArtist(String name)
         {
             String response = Client.SendRequest($"https://api.spotify.com/v1/search?q={name}&type=artist");
 
@@ -26,12 +26,22 @@ namespace ConsoleApp1
 
             JObject currentUser = (JObject) allArtists["artists"]["items"][0];
 
+            String id = (String) currentUser["id"];
             String username = (String) currentUser["name"];
             String uri = (String) currentUser["uri"];
             int totalFollowers = (int) currentUser["followers"]["total"];
 
-            return new Profile(username, uri, totalFollowers);
+            return new Artist(id, username, uri, totalFollowers);
 
         }
-    }
+
+        public Tracks GetTopTracks(Artist artist)
+        {
+            String ArtistId = artist.Id;
+            String response = Client.SendRequest($"https://api.spotify.com/v1/artists/{ArtistId}/top-tracks?country=NL");
+
+            Console.WriteLine(response);
+            return new Tracks();
+        }
+     }
 }
