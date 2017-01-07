@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -12,11 +13,17 @@ namespace ConsoleApp1
             HttpClient client = new HttpClient();
             Spotify spotify = new Spotify(client);
 
-            String artist = Console.ReadLine();
-            Artist monstercat = spotify.SearchArtist(artist);
+            Artist artist = spotify.SearchArtist(Console.ReadLine());
+            Tracks topTracks = spotify.GetTopTracks(artist);
 
-            spotify.GetTopTracks(monstercat);
+            Console.WriteLine("Found Artist: " + artist.Name);
+            Console.WriteLine("Top Tracks:");
 
+            foreach (Track track in topTracks)
+            {
+                Console.WriteLine(track);
+            }
+           
             Console.ReadLine();
         }
     }

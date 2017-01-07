@@ -40,8 +40,27 @@ namespace ConsoleApp1
             String ArtistId = artist.Id;
             String response = Client.SendRequest($"https://api.spotify.com/v1/artists/{ArtistId}/top-tracks?country=NL");
 
-            Console.WriteLine(response);
-            return new Tracks();
+
+            JObject allTracks = JObject.Parse(response);
+
+            IEnumerable<object> trackList = allTracks["tracks"];
+
+            Tracks tracks = new Tracks();
+
+            foreach (JObject trackItem in trackList)
+            {
+                String name = (String)trackItem["name"];
+                String uri = (String)trackItem["uri"];
+                String type = (String)trackItem["type"];
+                String href = (String)trackItem["href"];
+       
+
+                Track track = new Track(name,uri, type, href);
+                tracks.AddTrack(track);
+            }
+
+
+            return tracks;
         }
-     }
+    }
 }
