@@ -20,10 +20,7 @@ namespace ConsoleApp1
 
         public IEnumerator GetEnumerator()
         {
-            foreach(Track track in tracks)
-            {
-                yield return track;
-            }
+            return tracks.GetEnumerator();
         }
     }
 }
